@@ -7,14 +7,13 @@ class Object {
     this.sprite = document.querySelector(`#${name}`)
     this.modifier = Math.abs(canvas.width / 2 - initial)
     this.ratio = height / width
-    this.dist = 0.5
+    this.dist = 0
     this.height = height
     this.width = width
     this.x = initial
     this.y = 240 - height
     this.hitLeft = hitLeft
     this.hitRight = hitRight
-    console.log(this.name)
   }
 
   static randObject(blueprint) {
@@ -32,10 +31,10 @@ class Object {
     if (this.dist < 30) {
       twoD.drawImage(this.sprite, this.x, this.y, this.width, this.height)
       if (this.orientation == "right") {
-        this.x += this.dist * this.modifier
+        this.x += (this.dist * this.modifier) / 2
 
       } else {
-        this.x -= this.dist * this.modifier
+        this.x -= (this.dist * this.modifier) / 2
       }
       this.y -= 0.3
       this.height += (this.dist * 0.2)
@@ -43,8 +42,7 @@ class Object {
       this.dist += 1
     }
     if (this.dist == 30) {
-      console.log(this.hitRight)
-      if (car.x + 50 > (this.x + this.hitLeft) && car.x + 50 < (this.x + this.hitRight)) {
+      if (game.player.x + 50 > (this.x) && game.player.x + 50 < (this.x + this.width)) {
         console.log('hit')
         if (this.name == "star") {
           game.score += 100
