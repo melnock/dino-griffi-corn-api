@@ -30,7 +30,6 @@ window.addEventListener('load', function() {
   }
 
   function characterClick(e){
-    console.log('click')
     const target = parseInt(e.target.id)
     let targetedCharacter = Character.all().find(char => (char.id == target))
     if (targetedCharacter != undefined){
@@ -46,6 +45,7 @@ window.addEventListener('load', function() {
     chooseCharacter.style.display = 'inline'
     chooseCharacter.addEventListener('mouseover', displayCharacterBio)
     chooseCharacter.addEventListener('click', characterClick)
+
   }
 
   fetchCharacters()
