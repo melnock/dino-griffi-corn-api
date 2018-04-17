@@ -7,5 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Item.create(name: "palmtree", sprite: "img/palm.png", obstacle: true, hitbox_size: {left: 100, right: 230})
-Item.create(name: "crystal", sprite: "img/crystal.png", obstacle: true, hitbox_size: {left: 0, right: 0})
+Item.create(name: "palmtree", sprite: "img/palm.png", obstacle: true, hitbox_size: {left: 100, right: 230}, size: {width: 15, height: 15})
+Item.create(name: "crystal", sprite: "img/crystal.png", obstacle: true, hitbox_size: {left: 0, right: 400}, size: {width: 15, height: 12})
