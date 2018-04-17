@@ -37,8 +37,8 @@ class Object {
       } else {
         this.x -= this.dist * this.modifier
       }
-      this.y -= 2
-      this.height += this.dist
+      this.y -= 0.3
+      this.height += (this.dist * 0.2)
       this.width = this.height / this.ratio
       this.dist += 1
     }
