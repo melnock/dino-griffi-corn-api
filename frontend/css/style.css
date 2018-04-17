@@ -8,6 +8,16 @@
   display: block;
   float: right;
   width: 30%;
+  border-radius: 2px;
+  background: #1f1d31;
+  height: 360px;
+}
+
+#stat-info{
+  text-align: center;
+  font-family: monospace;
+  font-size: 1.5em;
+  color: #06ff12;
 }
 
 #start-screen, #choose-character-screen{
