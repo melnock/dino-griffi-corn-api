@@ -568,3 +568,47 @@ Migrating to AddSizeToItems (20180417153828)
   [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "sprite", "hitbox_size", "obstacle", "created_at", "updated_at", "size") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "crystal"], ["sprite", "img/crystal.png"], ["hitbox_size", "---\n:left: 0\n:right: 400\n"], ["obstacle", "t"], ["created_at", "2018-04-17 15:43:25.293070"], ["updated_at", "2018-04-17 15:43:25.293070"], ["size", "{:width=>15, :height=>12}"]]
   [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
 >>>>>>> alec
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddSizeToItems (20180417153828)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "items" ADD "size" text[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180417153828"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddBioColumnToCharacters (20180417182703)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "characters" ADD "bio" varchar[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180417182703"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "sprite", "hitbox_size", "obstacle", "created_at", "updated_at", "size") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "palmtree"], ["sprite", "img/palm.png"], ["hitbox_size", "---\n:left: 100\n:right: 230\n"], ["obstacle", "t"], ["created_at", "2018-04-17 18:31:23.200032"], ["updated_at", "2018-04-17 18:31:23.200032"], ["size", "---\n:width: 15\n:height: 15\n"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("name", "sprite", "hitbox_size", "obstacle", "created_at", "updated_at", "size") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "crystal"], ["sprite", "img/crystal.png"], ["hitbox_size", "---\n:left: 0\n:right: 400\n"], ["obstacle", "t"], ["created_at", "2018-04-17 18:31:23.203858"], ["updated_at", "2018-04-17 18:31:23.203858"], ["size", "---\n:width: 15\n:height: 12\n"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "characters" ("name", "sprites", "created_at", "updated_at", "bio") VALUES (?, ?, ?, ?, ?)[0m  [["name", "unicorn"], ["sprites", "---\n:front: img/rarity.png\n:back: img/unicorn.png\n"], ["created_at", "2018-04-17 18:31:23.212980"], ["updated_at", "2018-04-17 18:31:23.212980"], ["bio", "A mythical unicorn has many special talents. I bet you didn't know that one of them was navigting through our jungle of obstacles. Will you be champion with the unicorn as your guide?"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "sprite", "hitbox_size", "obstacle", "created_at", "updated_at", "size") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "palmtree"], ["sprite", "img/palm.png"], ["hitbox_size", "---\n:left: 100\n:right: 230\n"], ["obstacle", "t"], ["created_at", "2018-04-17 19:19:19.287903"], ["updated_at", "2018-04-17 19:19:19.287903"], ["size", "---\n:width: 15\n:height: 15\n"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("name", "sprite", "hitbox_size", "obstacle", "created_at", "updated_at", "size") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "crystal"], ["sprite", "img/crystal.png"], ["hitbox_size", "---\n:left: 0\n:right: 400\n"], ["obstacle", "t"], ["created_at", "2018-04-17 19:19:19.291979"], ["updated_at", "2018-04-17 19:19:19.291979"], ["size", "---\n:width: 15\n:height: 12\n"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "characters" ("name", "sprites", "created_at", "updated_at", "bio") VALUES (?, ?, ?, ?, ?)[0m  [["name", "unicorn"], ["sprites", "---\n:front: img/rarity.png\n:back: img/unicorn.png\n"], ["created_at", "2018-04-17 19:19:19.300454"], ["updated_at", "2018-04-17 19:19:19.300454"], ["bio", "A mythical unicorn has many special talents. I bet you didn't know that one of them was navigting through our jungle of obstacles. Will you be champion with the unicorn as your guide?"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "characters" ("name", "sprites", "created_at", "updated_at", "bio") VALUES (?, ?, ?, ?, ?)[0m  [["name", "car"], ["sprites", "---\n:front: img/car.png\n:back: img/outrun.png\n"], ["created_at", "2018-04-17 19:19:19.303388"], ["updated_at", "2018-04-17 19:19:19.303388"], ["bio", "Vrrrrroooooooommmmmmm! If you prefer a classic racing mount, maybe the fancy dancy, super-charged, luxury car for your race. Choose wisely!"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "characters" ("name", "sprites", "created_at", "updated_at", "bio") VALUES (?, ?, ?, ?, ?)[0m  [["name", "dino"], ["sprites", "---\n:front: img/rawr-dinosaur.svg\n:back: img/dinosaur.png\n"], ["created_at", "2018-04-17 19:19:19.305591"], ["updated_at", "2018-04-17 19:19:19.305591"], ["bio", "Am I a dragon? Am I a dinosaur? I really have no clue and don't care very much. I live for the thrill of the race. Let's win this!"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "characters" ("name", "sprites", "created_at", "updated_at", "bio") VALUES (?, ?, ?, ?, ?)[0m  [["name", "griffon"], ["sprites", "---\n:front: img/griffon.png\n:back: img/griffon-back.png\n"], ["created_at", "2018-04-17 19:19:19.307932"], ["updated_at", "2018-04-17 19:19:19.307932"], ["bio", "SCREEEECH! ROAR! Am I a bird of prey or a lion? You can't know for sure, eh? Doesn't matter, because I am as fierce a competitor as either of them!"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m

@@ -17,6 +17,10 @@
   left: 350px;
 }
 
+#choose-character-screen{
+  z-index: 0;
+}
+
 #logo-div{
   position: absolute;
   top: 10px;
@@ -36,7 +40,7 @@
 }
 
 #characters{
-
+  z-index: 1;
   position: absolute;
   top: 10px;
   left: 30px;
@@ -45,28 +49,28 @@
   align-items: flex-end;
 }
 
-#dino{
+.dino{
   padding: 10px;
   display: flex;
   justify-content: flex-start;
   max-width: 100px;
 }
 
-#unicorn{
+.unicorn{
   padding: 10px;
   display: flex;
   justify-content: space-around;
   max-width: 100px;
 }
 
-#car-side{
+.car-side{
   padding: 10px;
   display: flex;
   justify-content: space-around;
   max-width: 200px;
 }
 
-#griffon{
+.griffon{
   padding: 10px;
   display: flex;
   justify-content: flex-end;
