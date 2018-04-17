@@ -4,6 +4,8 @@ const twoD = canvas.getContext('2d')
 
 window.addEventListener('load', function() {
 
+  Adapter.fetchItems()
+
   function fetchCharacters(){
     fetch(`http://localhost:3000/api/v1/characters`)
       .then(r=>r.json())
@@ -32,6 +34,7 @@ window.addEventListener('load', function() {
     let targetedCharacter = Character.all().find(char => (char.id == target))
     if (targetedCharacter != undefined){
       document.querySelector('#choose-character-screen').style.display = 'none'
+      console.log(targetedCharacter)
       const game = new Game(targetedCharacter);
     }
   }

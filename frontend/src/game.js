@@ -17,6 +17,7 @@ class Game {
 
   addItem() {
     this.items[Math.floor(Math.random()*this.items.length)].instantiate()
+    // console.log(this.items)
     // this.items[2].instantiate()
   }
 
