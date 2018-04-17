@@ -14,11 +14,10 @@ class Object {
     this.width = width
     this.hitLeft = hitLeft
     this.hitRight = hitRight
-    console.log(`name ${this.name} height ${this.height} width ${this.width} ratio ${this.ratio}`)
   }
 
-  static randObject(name, height, width, hitLeft, hitRight) {
-    let object = new Object((Math.random() * 3) + 318, name, height, width, hitLeft, hitRight)
+  static randObject(blueprint) {
+    let object = new Object((Math.random() * 3) + 318, blueprint.name, blueprint.height, blueprint.width, blueprint.hitLeft, blueprint.hitRight)
     objArr.unshift(object)
   }
 
@@ -42,7 +41,7 @@ class Object {
       this.dist += 1
     }
     if (this.dist == 30) {
-      if (car.x + 50 > this.x + this.hitLeft && car.x + 50 < this.x + this.hitRight) {
+      if (car.x + 50 > (this.x + this.hitLeft) && car.x + 50 < (this.x + this.hitRight)) {
         if (this.name == "star") {
           game.score += 10000
         } else {

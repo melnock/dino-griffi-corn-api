@@ -12,7 +12,7 @@ class Game {
     setInterval(this.newLines, 200)
     setInterval(() => {Object.randObject("tree", 15, 15, 100, 230)}, 1500)
     setInterval(() => {Object.randObject("crystal", 15, 12, 0, 400)}, 2100)
-    setInterval(() => {Object.randObject("star", 0, 0, 0, 130)}, 2700)
+    setInterval(() => {Object.randObject("star", 1, 1, 0, 130)}, 2700)
   }
   draw() {
     this.score += 1

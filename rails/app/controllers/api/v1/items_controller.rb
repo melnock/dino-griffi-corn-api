@@ -26,6 +26,6 @@ class Api::V1::ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :sprite, :hitbox_size, :obstacle)
+    params.require(:item).permit(:name, :sprite, :hitbox_size, :obstacle, :size)
   end
 end

@@ -1,3 +1,3 @@
 class ItemSerializer < ActiveModel::Serializer
-  attributes :id, :hitbox_size, :obstacle, :sprite
+  attributes :id, :name, :hitbox_size, :obstacle, :sprite, :size
 end
