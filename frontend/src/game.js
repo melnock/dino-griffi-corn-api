@@ -1,30 +1,33 @@
-const car = new Car({back: "img/outrun.png"});
+
 const backdrop = document.querySelector('#backdrop')
 const background = new Background();
 
 
 class Game {
-  constructor() {
+  constructor(character) {
+    this.player = new Player(character);
     this.score = 0
     this.health = 3
-    car.initEventListener();
-    setInterval(() => {this.draw()}, 100)
+    this.player.initEventListener();
+    setInterval(() => {this.draw()}, 70)
     setInterval(this.newLines, 200)
-
-    const items = Blueprint.all()
-    console.log(items)
-    items.map(item => console.log(item))
-    // setInterval(() => {Object.randObject("tree", 15, 15, 100, 230)}, 1500)
-    // setInterval(() => {Object.randObject("crystal", 15, 12, 0, 400)}, 2100)
-    // setInterval(() => {Object.randObject("star", 1, 1, 0, 130)}, 2700)
+    this.items = Blueprint.all()
+    setInterval(() => {this.addItem()}, 1500)
   }
+
+  addItem() {
+    this.items[Math.floor(Math.random()*this.items.length)].instantiate()
+    // this.items[2].instantiate()
+  }
+
   draw() {
+    // this.items.map(item => item.instantiate())
     this.score += 1
     twoD.clearRect(0, 0, canvas.width, canvas.height)
     background.render()
     HorizLine.all().map(line => line.render())
     Object.all().map(object => object.render(this))
-    car.render()
+    this.player.render()
     document.querySelector("#score").innerText = this.score
     document.querySelector("#health").innerText = this.health
   }
