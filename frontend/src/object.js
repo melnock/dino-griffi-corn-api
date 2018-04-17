@@ -31,10 +31,10 @@ class Object {
     if (this.dist < 30) {
       twoD.drawImage(this.sprite, this.x, this.y, this.width, this.height)
       if (this.orientation == "right") {
-        this.x += (this.dist * this.modifier) / 2
+        this.x += (this.dist * this.modifier) / 3
 
       } else {
-        this.x -= (this.dist * this.modifier) / 2
+        this.x -= (this.dist * this.modifier) / 3
       }
       this.y -= 0.3
       this.height += (this.dist * 0.2)
@@ -43,9 +43,9 @@ class Object {
     }
     if (this.dist == 30) {
       if (game.player.x + 50 > (this.x) && game.player.x + 50 < (this.x + this.width)) {
-        console.log('hit')
         if (this.name == "star") {
           game.score += 100
+          console.log('star')
         } else {
           game.health -= 1
         }
