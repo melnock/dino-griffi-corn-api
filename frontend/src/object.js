@@ -7,18 +7,18 @@ class Object {
     this.sprite = document.querySelector(`#${name}`)
     this.modifier = Math.abs(canvas.width / 2 - initial)
     this.ratio = height / width
-    this.dist = 10
-    this.x = initial
-    this.y = 225
+    this.dist = 0.5
     this.height = height
     this.width = width
+    this.x = initial
+    this.y = 240 - height
     this.hitLeft = hitLeft
     this.hitRight = hitRight
     console.log(this.name)
   }
 
   static randObject(blueprint) {
-    let object = new Object((Math.random() * 3) + 318, blueprint.name, blueprint.height, blueprint.width, blueprint.hitLeft, blueprint.hitRight)
+    let object = new Object(Math.round(Math.random() * 3) + 318, blueprint.name, blueprint.height, blueprint.width, blueprint.hitLeft, blueprint.hitRight)
     objArr.unshift(object)
     return object
   }
@@ -37,20 +37,22 @@ class Object {
       } else {
         this.x -= this.dist * this.modifier
       }
-      this.y -= 9
+      this.y -= 2
       this.height += this.dist
       this.width = this.height / this.ratio
       this.dist += 1
     }
     if (this.dist == 30) {
+      console.log(this.hitRight)
       if (car.x + 50 > (this.x + this.hitLeft) && car.x + 50 < (this.x + this.hitRight)) {
+        console.log('hit')
         if (this.name == "star") {
-          game.score += 10000
+          game.score += 100
         } else {
           game.health -= 1
         }
         if (game.health < 0) {
-          alert('Game Over')
+          alert(`Game Over - You got ${game.score} points!`)
         }
       }
       this.dist = 100
