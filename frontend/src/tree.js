@@ -14,11 +14,13 @@ class Object {
     this.width = width
     this.hitLeft = hitLeft
     this.hitRight = hitRight
+    console.log(this.name)
   }
 
   static randObject(blueprint) {
     let object = new Object((Math.random() * 3) + 318, blueprint.name, blueprint.height, blueprint.width, blueprint.hitLeft, blueprint.hitRight)
     objArr.unshift(object)
+    return object
   }
 
   static all() {

@@ -1,3 +1,4 @@
+const blueprints = []
 class Blueprint {
   constructor(json) {
     this.name = json.name
@@ -5,9 +6,14 @@ class Blueprint {
     this.hitRight = json.hitbox_size.right
     this.height = json.size.height
     this.width = json.size.width
+    blueprints.push(this)
+  }
+
+  static all() {
+    return blueprints
   }
 
   instantiate() {
-    Object.randObject(this)
+    return Object.randObject(this)
   }
 }

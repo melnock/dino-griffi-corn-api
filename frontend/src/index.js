@@ -6,9 +6,9 @@ window.addEventListener('load', function() {
 
   Adapter.fetchItems();
 
-  const start = new Start();
-  start.render()
+  // const start = new Start();
+  // start.render()
 
-  // const game = new Game();
+  const game = new Game();
 
 })
