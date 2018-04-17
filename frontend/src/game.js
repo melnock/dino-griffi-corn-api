@@ -21,11 +21,27 @@ class Game {
     // this.items[2].instantiate()
   }
 
+  renderHealth() {
+    twoD.fillStyle = "#06ff12"
+    twoD.fillRect(20, 30, this.health * 30, 20)
+  }
+
+  renderScore() {
+    twoD.fillStyle = "#06ff12"
+    twoD.fillText(this.score, 500, 40)
+  }
+
   draw() {
     // this.items.map(item => item.instantiate())
     this.score += 1
     twoD.clearRect(0, 0, canvas.width, canvas.height)
     background.render()
+    twoD.fillStyle = "#06ff12"
+    twoD.font = "20px monospace"
+    twoD.fillText("Health", 10, 20)
+    twoD.fillText("Score", 500, 20)
+    this.renderHealth()
+    this.renderScore()
     HorizLine.all().map(line => line.render())
     Object.all().map(object => object.render(this))
     this.player.render()
