@@ -9,8 +9,8 @@ class Game {
     this.score = 0
     this.health = 3
     this.player.initEventListener();
-    setInterval(() => {this.draw()}, 70)
-    setInterval(this.newLines, 200)
+    this.intervalCanvas = setInterval(() => {this.draw()}, 70)
+    this.intervalLines = setInterval(this.newLines, 200)
     this.items = Blueprint.all()
     setInterval(() => {this.addItem()}, 1500)
   }

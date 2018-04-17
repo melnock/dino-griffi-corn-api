@@ -50,8 +50,12 @@ class Object {
           game.health -= 1
         }
         if (game.health < 0) {
-
-          alert(`You got ${game.score} points!`)
+          clearInterval(game.intervalCanvas)
+          clearInterval(game.intervalLines)
+          twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
+          twoD.fillStyle = "#06ff12"
+          twoD.fillText(`You got ${game.score} points!`, 200, 180)
+          // alert(`Game Over - You got ${game.score} points!`)
         }
       }
       this.dist = 100
