@@ -5,20 +5,9 @@ const twoD = canvas.getContext('2d')
 window.addEventListener('load', function() {
 
   Adapter.fetchItems()
+  Adapter.fetchCharacters()
 
-  function fetchCharacters(){
-    fetch(`http://localhost:3000/api/v1/characters`)
-      .then(r=>r.json())
-      .then(json => {
-        console.log(json)
-        makeCharacters(json)
-      })
-  }
 
-  function makeCharacters(json){
-    json.forEach(char => new Character(char.name, char.sprites, char.bio, char.id))
-  }
-  // const game = new Game();
   function displayCharacterBio(e){
     const target = parseInt(e.target.id)
     let targetedCharacter = Character.all().find(char => (char.id == target))
@@ -48,6 +37,6 @@ window.addEventListener('load', function() {
 
   }
 
-  fetchCharacters()
+  // fetchCharacters()
   document.querySelector("#start-button-div").addEventListener('click', startGame)
 })

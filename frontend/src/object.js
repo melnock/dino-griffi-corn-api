@@ -50,7 +50,8 @@ class Object {
           game.health -= 1
         }
         if (game.health < 0) {
-          alert(`Game Over - You got ${game.score} points!`)
+
+          alert(`You got ${game.score} points!`)
         }
       }
       this.dist = 100
