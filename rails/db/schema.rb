@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417130122) do
+ActiveRecord::Schema.define(version: 20180417153828) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20180417130122) do
     t.boolean "obstacle"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "size"
   end
 
   create_table "levels", force: :cascade do |t|
