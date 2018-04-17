@@ -51,6 +51,6 @@ class Player {
     } else if (this.momentum < 0) {
       this.momentum += 2
     }
-    twoD.drawImage(document.querySelector('#car'), this.x, 300, 100, 60)
+    twoD.drawImage(document.querySelector('#car'), this.x, 260, 100, 60)
   }
 }
