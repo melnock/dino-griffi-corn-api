@@ -5,7 +5,7 @@ class Player {
     let img = document.createElement('img')
     img.setAttribute("id", "car");
     img.setAttribute("hidden", "true")
-    img.setAttribute("src", character.sprite["back"])
+    img.setAttribute("src", character.sprites["back"])
     document.querySelector('.images').appendChild(img)
 
     this.keyLeft = false

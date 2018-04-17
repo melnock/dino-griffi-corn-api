@@ -27,7 +27,7 @@ window.addEventListener('load', function() {
     }
   }
 
-  function chooseCharacter(e){
+  function characterClick(e){
     const target = parseInt(e.target.id)
     let targetedCharacter = Character.all().find(char => (char.id == target))
     if (targetedCharacter != undefined){
@@ -41,7 +41,7 @@ window.addEventListener('load', function() {
     document.querySelector('#start-screen').style.display = 'none'
     chooseCharacter.style.display = 'inline'
     chooseCharacter.addEventListener('mouseover', displayCharacterBio)
-    chooseCharacter.addEventListener('click', chooseCharacter)
+    chooseCharacter.addEventListener('click', characterClick)
 
   }
 
