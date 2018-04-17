@@ -4,16 +4,36 @@ const twoD = canvas.getContext('2d')
 
 window.addEventListener('load', function() {
 
+  function fetchCharacters(){
+    fetch(`http://localhost:3000/api/v1/characters`)
+      .then(r=>r.json())
+      .then(json => {
+        console.log(json)
+        makeCharacters(json)
+      })
+  }
+
+  function makeCharacters(json){
+    json.forEach(char => new Character(char.name, char.sprites, char.bio, char.id))
+  }
   // const game = new Game();
   function displayCharacterBio(e){
-    console.log(e)
-    const target = e.target.id
-    fetch(`http://localhost:3000/api/v1/characters/${target}`)
-      .then(r=>r.json)
-      .then(json => {
-        let char = new Character(json.name, json.sprites, json.bio, json.id)
-        document.getElementById("character-bio").innerHTML = `<p>${char.bio}</p>`
-      })
+    const target = parseInt(e.target.id)
+    let targetedCharacter = Character.all().find(char => (char.id == target))
+    if (targetedCharacter != undefined){
+      document.getElementById("character-bio").innerHTML = `<p>${targetedCharacter.bio}</p>`
+    }else{
+      document.getElementById("character-bio").innerHTML = ``
+    }
+  }
+
+  function chooseCharacter(e){
+    const target = parseInt(e.target.id)
+    let targetedCharacter = Character.all().find(char => (char.id == target))
+    if (targetedCharacter != undefined){
+      document.querySelector('#choose-character-screen').style.display = 'none'
+      const game = new Game(targetedCharacter);
+    }
   }
 
   function startGame(e){
@@ -21,8 +41,10 @@ window.addEventListener('load', function() {
     document.querySelector('#start-screen').style.display = 'none'
     chooseCharacter.style.display = 'inline'
     chooseCharacter.addEventListener('mouseover', displayCharacterBio)
+    chooseCharacter.addEventListener('click', chooseCharacter)
+
   }
 
-
+  fetchCharacters()
   document.querySelector("#start-button-div").addEventListener('click', startGame)
 })

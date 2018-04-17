@@ -49,6 +49,17 @@
   align-items: flex-end;
 }
 
+#character-bio{
+  font-family: monospace;
+  font-size: 1.5em;
+  color: #06ff12;
+  position: absolute;
+  max-width: 400px;
+  text-align: center;
+  top: 130px;
+  left: 120px;
+}
+
 .dino{
   padding: 10px;
   display: flex;
