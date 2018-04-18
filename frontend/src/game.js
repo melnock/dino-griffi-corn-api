@@ -79,7 +79,13 @@ class Game {
       e.preventDefault()
       game.addUsername(e.target[0].value)
       Adapter.postScore(game)
-      postGameForm.innerHTML=''
+      postGameForm.innerHTML='<button id="restart-button"> New Game! </button>'
+      postGameForm.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (e.target == document.querySelector("restart-button")){
+          document.location.reload()
+        }
+      })
     })
     // setTimeout(function(){document.location.reload()}, 60000)
   }
