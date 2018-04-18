@@ -26,6 +26,10 @@ class Object {
     return objArr
   }
 
+  static clear() {
+    objArr.length = 0
+  }
+
   render(game) {
     this.score += 1
     if (this.dist < 30) {
@@ -46,19 +50,17 @@ class Object {
         if (this.name == "star") {
           game.score += 100
           console.log('star')
+        } else if (this.name == "bomb") {
+          game.bomb_count += 1
         } else {
           game.health -= 1
         }
         if (game.health < 0) {
-          clearInterval(game.intervalCanvas)
-          clearInterval(game.intervalLines)
-          twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
-          twoD.fillStyle = "#06ff12"
-          twoD.fillText(`You got ${game.score} points!`, 200, 180)
-          // alert(`Game Over - You got ${game.score} points!`)
+          game.health = 0
+          alert(`Game Over - You got ${game.score} points!`)
         }
       }
-      this.dist = 100
+      objArr.splice(-1, 1)
     }
   }
 }
