@@ -44,8 +44,9 @@ class Object {
     if (this.dist == 30) {
       if (game.player.x + 50 > (this.x) && game.player.x + 50 < (this.x + this.width)) {
         if (this.name == "star") {
+          console.log(game.score)
           game.score += 100
-          console.log('star')
+          console.log(game.score)
         } else {
           game.health -= 1
         }
@@ -54,9 +55,12 @@ class Object {
           clearInterval(game.intervalLines)
           twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
           twoD.fillStyle = "#06ff12"
-          twoD.fillText(`You got ${game.score} points!`, 200, 180)
+          twoD.fillText(`You got ${game.score} points!`, 200, 160)
+          // twoD.fillText(`Add your name to the leaderboard!`, 135, 190)
+          setTimeout(function(){document.location.reload()}, 10000)
           // alert(`Game Over - You got ${game.score} points!`)
         }
+
       }
       this.dist = 100
     }
