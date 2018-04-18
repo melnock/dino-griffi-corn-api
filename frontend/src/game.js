@@ -82,33 +82,8 @@ class Game {
   }
 
   gameOverSequence(game){
-<<<<<<< HEAD
-    clearInterval(game.intervalCanvas)
-    clearInterval(game.intervalLines)
-    twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
-    twoD.fillStyle = "#06ff12"
-    twoD.fillText(`You got ${game.score} points!`, 200, 160)
-    twoD.fillText(`Add your initials to the leaderboard!`, 120, 190)
-    let postGameForm = document.createElement("form")
-    postGameForm.id = "game-over-form"
-    postGameForm.innerHTML = `<input type="text"></input><input type="submit"></input>`
-    document.body.append(postGameForm)
-    postGameForm.addEventListener('submit', (e)=>{
-      e.preventDefault()
-      game.addUsername(e.target[0].value)
-      Adapter.postScore(game)
-      postGameForm.innerHTML='<button id="restart-button"> New Game! </button>'
-      postGameForm.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (e.target == document.querySelector("restart-button")){
-          document.location.reload()
-        }
-      })
-=======
-
     clearInterval(this.intervalCanvas)
     let score = new ScoreEntry()
-    // twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
     score.render()
 
     document.addEventListener('keydown', e => {
@@ -128,7 +103,6 @@ class Game {
         this.addUsername(`${score.alpha[score.key0]}${score.alpha[score.key1]}${score.alpha[score.key2]}`)
         Adapter.postScore(this)
       }
->>>>>>> 2d70e8b4cbf7be1b435d4465d8747c5634572578
     })
     // twoD.fillStyle = "#06ff12"
 
