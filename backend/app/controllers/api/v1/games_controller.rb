@@ -4,7 +4,7 @@ class Api::V1::GamesController < ApplicationController
   end
 
   def create
-    game = Game.new(game_params)
+    game = Game.create(game_params)
     render json: game
   end
 

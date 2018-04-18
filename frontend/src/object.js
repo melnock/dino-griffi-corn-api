@@ -53,12 +53,7 @@ class Object {
         if (game.health < 0) {
           clearInterval(game.intervalCanvas)
           clearInterval(game.intervalLines)
-          twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
-          twoD.fillStyle = "#06ff12"
-          twoD.fillText(`You got ${game.score} points!`, 200, 160)
-          // twoD.fillText(`Add your name to the leaderboard!`, 135, 190)
-          setTimeout(function(){document.location.reload()}, 10000)
-          // alert(`Game Over - You got ${game.score} points!`)
+          game.gameOverSequence(game)
         }
 
       }

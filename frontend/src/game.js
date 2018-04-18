@@ -31,6 +31,10 @@ class Game {
     twoD.fillText(this.score, 500, 40)
   }
 
+  addUsername(username){
+    this.username = username
+  }
+
   draw() {
     // this.items.map(item => item.instantiate())
     this.score += 1
@@ -51,5 +55,23 @@ class Game {
 
   newLines() {
     let line = new HorizLine()
+  }
+
+  gameOverSequence(game){
+    twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
+    twoD.fillStyle = "#06ff12"
+    twoD.fillText(`You got ${game.score} points!`, 200, 160)
+    twoD.fillText(`Add your initials to the leaderboard!`, 135, 190)
+    let postGameForm = document.createElement("form")
+    postGameForm.id = "game-over-form"
+    postGameForm.innerHTML = `<input type="text"></input><input type="submit"></input>`
+    document.body.append(postGameForm)
+    postGameForm.addEventListener('submit', (e)=>{
+      e.preventDefault()
+      game.addUsername(e.target[0].value)
+      Adapter.postScore(game)
+      postGameForm.innerHTML=''
+    })
+    // setTimeout(function(){document.location.reload()}, 60000)
   }
 }
