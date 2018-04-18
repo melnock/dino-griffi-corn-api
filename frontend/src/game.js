@@ -68,26 +68,47 @@ class Game {
   }
 
   gameOverSequence(game){
-    twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
-    twoD.fillStyle = "#06ff12"
-    twoD.fillText(`You got ${game.score} points!`, 200, 160)
-    twoD.fillText(`Add your initials to the leaderboard!`, 120, 190)
-    let postGameForm = document.createElement("form")
-    postGameForm.id = "game-over-form"
-    postGameForm.innerHTML = `<input type="text"></input><input type="submit"></input>`
-    document.body.append(postGameForm)
-    postGameForm.addEventListener('submit', (e)=>{
-      e.preventDefault()
-      game.addUsername(e.target[0].value)
-      Adapter.postScore(game)
-      postGameForm.innerHTML='<button id="restart-button"> New Game! </button>'
-      postGameForm.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (e.target == document.querySelector("restart-button")){
-          document.location.reload()
-        }
-      })
+
+    clearInterval(this.intervalCanvas)
+    let score = new ScoreEntry()
+    // twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
+    score.render()
+
+    document.addEventListener('keydown', e => {
+      if (e.key == "ArrowLeft") {
+        score.activeKey = Math.max(0, score.activeKey - 1)
+        score.render()
+      } else if (e.key == "ArrowRight") {
+        score.activeKey = Math.min(2, score.activeKey + 1)
+        score.render()
+      } else if (e.key == "ArrowUp") {
+        score[`key${score.activeKey}`] = Math.min(26, score[`key${score.activeKey}`] + 1)
+        score.render()
+      } else if (e.key == "ArrowDown") {
+        score[`key${score.activeKey}`] = Math.max(0, score[`key${score.activeKey}`] - 1)
+        score.render()
+      } else if (e.key == "Enter") {
+        console.log('enter, young one')
+      }
     })
+    // twoD.fillStyle = "#06ff12"
+
+    // let postGameForm = document.createElement("form")
+    // postGameForm.id = "game-over-form"
+    // postGameForm.innerHTML = `<input type="text"></input><input type="submit"></input>`
+    // document.body.append(postGameForm)
+    // postGameForm.addEventListener('submit', (e)=>{
+    //   e.preventDefault()
+    //   game.addUsername(e.target[0].value)
+    //   Adapter.postScore(game)
+    //   postGameForm.innerHTML='<button id="restart-button"> New Game! </button>'
+    //   postGameForm.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     if (e.target == document.querySelector("restart-button")){
+    //       document.location.reload()
+    //     }
+    //   })
+    // })
     // setTimeout(function(){document.location.reload()}, 60000)
   }
 }

@@ -64,7 +64,8 @@ class Object {
         }
         if (game.health < 0) {
           game.health = 0
-          alert(`Game Over - You got ${game.score} points!`)
+          game.gameOverSequence()
+          // alert(`Game Over - You got ${game.score} points!`)
         }
       }
       objArr.splice(-1, 1)
