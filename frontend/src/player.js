@@ -7,9 +7,10 @@ class Player {
     img.setAttribute("hidden", "true")
     img.setAttribute("src", character.sprites["back"])
     document.querySelector('.images').appendChild(img)
-
     this.keyLeft = false
     this.keyRight = false
+    var audio = new Audio('audio/outrun.m4a');
+    audio.play();
   }
 
   initEventListener() {
