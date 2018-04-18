@@ -13,8 +13,13 @@ class Game {
     this.intervalLines = setInterval(this.newLines, 200)
     this.bomb_count = 1
     this.items = Blueprint.all()
+<<<<<<< HEAD
     setInterval(()=>(this.incrementTime()), interval)
     // autoBind(this)
+=======
+    setInterval(() => {this.addItem()}, 1500)
+    setInterval(Object.palms, 600)
+>>>>>>> 2d70e8b4cbf7be1b435d4465d8747c5634572578
   }
 
   addItem() {
@@ -77,6 +82,7 @@ class Game {
   }
 
   gameOverSequence(game){
+<<<<<<< HEAD
     clearInterval(game.intervalCanvas)
     clearInterval(game.intervalLines)
     twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
@@ -98,7 +104,49 @@ class Game {
           document.location.reload()
         }
       })
+=======
+
+    clearInterval(this.intervalCanvas)
+    let score = new ScoreEntry()
+    // twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
+    score.render()
+
+    document.addEventListener('keydown', e => {
+      if (e.key == "ArrowLeft") {
+        score.activeKey = Math.max(0, score.activeKey - 1)
+        score.render()
+      } else if (e.key == "ArrowRight") {
+        score.activeKey = Math.min(2, score.activeKey + 1)
+        score.render()
+      } else if (e.key == "ArrowUp") {
+        score[`key${score.activeKey}`] = Math.min(26, score[`key${score.activeKey}`] + 1)
+        score.render()
+      } else if (e.key == "ArrowDown") {
+        score[`key${score.activeKey}`] = Math.max(0, score[`key${score.activeKey}`] - 1)
+        score.render()
+      } else if (e.key == "Enter") {
+        console.log('enter, young one')
+      }
+>>>>>>> 2d70e8b4cbf7be1b435d4465d8747c5634572578
     })
+    // twoD.fillStyle = "#06ff12"
+
+    // let postGameForm = document.createElement("form")
+    // postGameForm.id = "game-over-form"
+    // postGameForm.innerHTML = `<input type="text"></input><input type="submit"></input>`
+    // document.body.append(postGameForm)
+    // postGameForm.addEventListener('submit', (e)=>{
+    //   e.preventDefault()
+    //   game.addUsername(e.target[0].value)
+    //   Adapter.postScore(game)
+    //   postGameForm.innerHTML='<button id="restart-button"> New Game! </button>'
+    //   postGameForm.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     if (e.target == document.querySelector("restart-button")){
+    //       document.location.reload()
+    //     }
+    //   })
+    // })
     // setTimeout(function(){document.location.reload()}, 60000)
   }
 }

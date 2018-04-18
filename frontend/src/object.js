@@ -17,9 +17,16 @@ class Object {
   }
 
   static randObject(blueprint) {
-    let object = new Object(Math.round(Math.random() * 3) + 318, blueprint.name, blueprint.height, blueprint.width, blueprint.hitLeft, blueprint.hitRight)
+    let object = new Object(Math.round(Math.random() * 20) + 310, blueprint.name, blueprint.height, blueprint.width, blueprint.hitLeft, blueprint.hitRight)
     objArr.unshift(object)
     return object
+  }
+
+  static palms() {
+    let leftPalm = new Object(270, "vaporpalm", 20, 15, 0, 0)
+    objArr.unshift(leftPalm)
+    let rightPalm = new Object(360, "vaporpalm", 20, 15, 0, 0)
+    objArr.unshift(rightPalm)
   }
 
   static all() {
@@ -35,10 +42,10 @@ class Object {
     if (this.dist < 30) {
       twoD.drawImage(this.sprite, this.x, this.y, this.width, this.height)
       if (this.orientation == "right") {
-        this.x += (this.dist * this.modifier) / 3
+        this.x += this.dist * (this.modifier / 40)
 
       } else {
-        this.x -= (this.dist * this.modifier) / 3
+        this.x -= this.dist * (this.modifier / 40)
       }
       this.y -= 0.3
       this.height += (this.dist * 0.2)
@@ -48,7 +55,6 @@ class Object {
     if (this.dist == 30) {
       if (game.player.x + 50 > (this.x) && game.player.x + 50 < (this.x + this.width)) {
         if (this.name == "star") {
-          console.log(game.score)
           game.score += 100
           console.log('star')
         } else if (this.name == "bomb") {
@@ -57,9 +63,10 @@ class Object {
           game.health -= 1
         }
         if (game.health < 0) {
-          game.gameOverSequence(game)
+          game.health = 0
+          game.gameOverSequence()
+          // alert(`Game Over - You got ${game.score} points!`)
         }
-
       }
       objArr.splice(-1, 1)
     }
