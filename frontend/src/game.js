@@ -13,13 +13,10 @@ class Game {
     this.intervalLines = setInterval(this.newLines, 200)
     this.bomb_count = 1
     this.items = Blueprint.all()
-<<<<<<< HEAD
     setInterval(()=>(this.incrementTime()), interval)
     // autoBind(this)
-=======
-    setInterval(() => {this.addItem()}, 1500)
+    // setInterval(() => {this.addItem()}, 1500)
     setInterval(Object.palms, 600)
->>>>>>> 2d70e8b4cbf7be1b435d4465d8747c5634572578
   }
 
   addItem() {
