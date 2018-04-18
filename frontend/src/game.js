@@ -2,6 +2,9 @@
 const backdrop = document.querySelector('#backdrop')
 const background = new Background();
 let interval = 1500
+let postGameForm = document.createElement("form")
+postGameForm.id = "game-over-form"
+
 
 class Game {
   constructor(character) {
@@ -67,13 +70,13 @@ class Game {
   }
 
   incrementTime(){
-    console.log(this)
-    if (interval > 25){
+    if (interval > 75){
       interval -= 25
     }
-    this.addItem()
-    console.log(interval)
-    setTimeout(() => {this.incrementTime()}, interval)
+    if (this.health >= 0){
+      this.addItem()
+      setTimeout(() => {this.incrementTime()}, interval)
+    }
   }
 
   newLines() {
@@ -103,25 +106,23 @@ class Game {
       } else if (e.key == "Enter") {
         this.addUsername(`${score.alpha[score.key0]}${score.alpha[score.key1]}${score.alpha[score.key2]}`)
         Adapter.postScore(this)
+          postGameForm.innerHTML='<button id="restart-button"> New Game! </button>'
+          document.body.append(postGameForm)
+          postGameForm.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.location.reload()
+          })
       }
     })
     // twoD.fillStyle = "#06ff12"
 
-    // let postGameForm = document.createElement("form")
-    // postGameForm.id = "game-over-form"
     // postGameForm.innerHTML = `<input type="text"></input><input type="submit"></input>`
     // document.body.append(postGameForm)
     // postGameForm.addEventListener('submit', (e)=>{
     //   e.preventDefault()
     //   game.addUsername(e.target[0].value)
     //   Adapter.postScore(game)
-    //   postGameForm.innerHTML='<button id="restart-button"> New Game! </button>'
-    //   postGameForm.addEventListener('click', (e) => {
-    //     e.preventDefault();
-    //     if (e.target == document.querySelector("restart-button")){
-    //       document.location.reload()
-    //     }
-    //   })
+
     // })
     // setTimeout(function(){document.location.reload()}, 60000)
   }
