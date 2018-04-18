@@ -11,14 +11,13 @@ class Background {
 
   render() {
     twoD.drawImage(document.querySelector('#sky'), 0, 0, 640, 450)
-    console.log(this.sunY)
     if (this.sunY > 80) {
-      twoD.drawImage(document.querySelector('#sun'), 220, this.sunY -= 0.5, 200, 200)
+      twoD.drawImage(document.querySelector('#sun'), 220, this.sunY -= 0.1, 200, 200)
     } else {
       twoD.drawImage(document.querySelector('#sun'), 220, this.sunY, 200, 200)
     }
     if (this.cityY > 100) {
-      twoD.drawImage(document.querySelector('#city'), 0, this.cityY -= 0.5, 640, 150)
+      twoD.drawImage(document.querySelector('#city'), 0, this.cityY -= 0.1, 640, 150)
     } else {
       twoD.drawImage(document.querySelector('#city'), 0, this.cityY, 640, 150)
     }
