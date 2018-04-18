@@ -25,10 +25,10 @@ class Adapter {
         .then(r=>r.json()).then(console.log)
   }
 
-  static fetchGames(){
-    fetch(url+"games").then(r=> r.json()).then(json=>)
-
-  }
+  // static fetchGames(){
+  //   fetch(url+"games").then(r=> r.json()).then(json=>)
+  //
+  // }
 
   static makeLeaderboard(json){
     json.sort((gameA, gameB) => (gameA.score-gameB.score) ).map((game)=>`<li>${game.username}   |   ${game.score}</li>`)

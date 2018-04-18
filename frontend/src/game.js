@@ -60,8 +60,6 @@ class Game {
     HorizLine.all().map(line => line.render())
     Object.all().map(object => object.render(this))
     this.player.render()
-    document.querySelector("#score").innerText = this.score
-    document.querySelector("#health").innerText = this.health
   }
 
   newLines() {
