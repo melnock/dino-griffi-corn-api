@@ -88,7 +88,8 @@ class Game {
         score[`key${score.activeKey}`] = Math.max(0, score[`key${score.activeKey}`] - 1)
         score.render()
       } else if (e.key == "Enter") {
-        console.log('enter, young one')
+        this.addUsername(`${score.alpha[score.key0]}${score.alpha[score.key1]}${score.alpha[score.key2]}`)
+        Adapter.postScore(this)
       }
     })
     // twoD.fillStyle = "#06ff12"
