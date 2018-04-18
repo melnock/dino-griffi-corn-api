@@ -1,7 +1,7 @@
 
 const backdrop = document.querySelector('#backdrop')
 const background = new Background();
-
+let interval = 1500
 
 class Game {
   constructor(character) {
@@ -9,11 +9,12 @@ class Game {
     this.score = 0
     this.health = 3
     this.player.initEventListener(this);
-    this.intervalCanvas = setInterval(() => {this.draw()}, 70)
+    this.intervalCanvas = setInterval(()=>(this.draw()), 70)
     this.intervalLines = setInterval(this.newLines, 200)
     this.bomb_count = 1
     this.items = Blueprint.all()
-    setInterval(() => {this.addItem()}, 1500)
+    setInterval(()=>(this.incrementTime()), interval)
+    // autoBind(this)
   }
 
   addItem() {
@@ -62,11 +63,22 @@ class Game {
     this.player.render()
   }
 
+  incrementTime(){
+    console.log(this)
+    if (interval > 25){
+      interval -= 15
+      console.log(interval)
+    }
+    this.addItem()
+  }
+
   newLines() {
     let line = new HorizLine()
   }
 
   gameOverSequence(game){
+    clearInterval(game.intervalCanvas)
+    clearInterval(game.intervalLines)
     twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
     twoD.fillStyle = "#06ff12"
     twoD.fillText(`You got ${game.score} points!`, 200, 160)

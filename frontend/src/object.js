@@ -57,8 +57,6 @@ class Object {
           game.health -= 1
         }
         if (game.health < 0) {
-          clearInterval(game.intervalCanvas)
-          clearInterval(game.intervalLines)
           game.gameOverSequence(game)
         }
 
