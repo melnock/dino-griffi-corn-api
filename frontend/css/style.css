@@ -31,6 +31,9 @@ ol{
   font-size: 1.5em;
   color: #06ff12;
 }
+li{
+  padding: 10px;
+}
 
 #start-screen, #choose-character-screen{
   position: absolute;

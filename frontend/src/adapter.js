@@ -30,6 +30,10 @@ class Adapter {
   }
 
   static makeLeaderboard(json){
-    document.getElementById("leaderboard").innerHTML ="<h1>LEADERBOARD</h1>"+'<ol>' + json.sort((gameA, gameB) => (gameB.score-gameA.score) ).map((game)=>`<li><b>${game.username}</b>   |   ${game.score}</li>`).slice(0, 10) + '</ol>'
+    let leaderboard = document.querySelector("#scores-list")
+    document.querySelector('#leaderboard').style.display = 'inline'
+    let array = json.sort((gameA, gameB) => (gameB.score-gameA.score) ).slice(0, 10)
+    console.log(array)
+    array.forEach((game)=>leaderboard.innerHTML += `<li><b>${game.username}</b>   |   ${game.score}</li>`)
   }
 }
