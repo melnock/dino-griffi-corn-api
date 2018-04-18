@@ -71,7 +71,7 @@ class Game {
     twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
     twoD.fillStyle = "#06ff12"
     twoD.fillText(`You got ${game.score} points!`, 200, 160)
-    twoD.fillText(`Add your initials to the leaderboard!`, 135, 190)
+    twoD.fillText(`Add your initials to the leaderboard!`, 120, 190)
     let postGameForm = document.createElement("form")
     postGameForm.id = "game-over-form"
     postGameForm.innerHTML = `<input type="text"></input><input type="submit"></input>`
@@ -80,7 +80,13 @@ class Game {
       e.preventDefault()
       game.addUsername(e.target[0].value)
       Adapter.postScore(game)
-      postGameForm.innerHTML=''
+      postGameForm.innerHTML='<button id="restart-button"> New Game! </button>'
+      postGameForm.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (e.target == document.querySelector("restart-button")){
+          document.location.reload()
+        }
+      })
     })
     // setTimeout(function(){document.location.reload()}, 60000)
   }

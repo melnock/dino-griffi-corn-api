@@ -22,15 +22,18 @@ class Adapter {
       body: JSON.stringify(
         {username: game.username, score: game.score}
       )})
-        .then(r=>r.json()).then(console.log)
+        .then(r=>r.json()).then(json => Adapter.fetchGames())
   }
 
-  // static fetchGames(){
-  //   fetch(url+"games").then(r=> r.json()).then(json=>)
-  //
-  // }
+  static fetchGames(){
+    fetch(url+"games").then(r=> r.json()).then(json=>Adapter.makeLeaderboard(json))
+  }
 
   static makeLeaderboard(json){
-    json.sort((gameA, gameB) => (gameA.score-gameB.score) ).map((game)=>`<li>${game.username}   |   ${game.score}</li>`)
+    let leaderboard = document.querySelector("#scores-list")
+    document.querySelector('#leaderboard').style.display = 'inline'
+    let array = json.sort((gameA, gameB) => (gameB.score-gameA.score) ).slice(0, 10)
+    console.log(array)
+    array.forEach((game)=>leaderboard.innerHTML += `<li><b>${game.username}</b>   |   ${game.score}</li>`)
   }
 }
