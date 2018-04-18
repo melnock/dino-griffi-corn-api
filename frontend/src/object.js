@@ -56,19 +56,20 @@ class Object {
       if (game.player.x + 50 > (this.x) && game.player.x + 50 < (this.x + this.width)) {
         if (this.name == "star") {
           game.score += 100
-          // console.log('star')
+          objArr.splice(-1, 1)
         } else if (this.name == "bomb") {
           game.bomb_count += 1
+          objArr.splice(-1, 1)
         } else {
           game.health -= 1
+          objArr.splice(-1, 1)
         }
         if (game.health < 0) {
           game.health = 0
           game.gameOverSequence()
-          // alert(`Game Over - You got ${game.score} points!`)
         }
+        this.dist = 31
       }
-      objArr.splice(-1, 1)
     }
   }
 }
