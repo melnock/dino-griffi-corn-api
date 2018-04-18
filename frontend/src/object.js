@@ -26,6 +26,10 @@ class Object {
     return objArr
   }
 
+  static clear() {
+    objArr.length = 0
+  }
+
   render(game) {
     this.score += 1
     if (this.dist < 30) {
@@ -46,7 +50,9 @@ class Object {
         if (this.name == "star") {
           console.log(game.score)
           game.score += 100
-          console.log(game.score)
+          console.log('star')
+        } else if (this.name == "bomb") {
+          game.bomb_count += 1
         } else {
           game.health -= 1
         }
@@ -57,7 +63,7 @@ class Object {
         }
 
       }
-      this.dist = 100
+      objArr.splice(-1, 1)
     }
   }
 }
