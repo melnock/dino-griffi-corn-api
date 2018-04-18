@@ -14,6 +14,7 @@ class Game {
     this.bomb_count = 1
     this.items = Blueprint.all()
     setInterval(() => {this.addItem()}, 1500)
+    setInterval(Object.palms, 600)
   }
 
   addItem() {
