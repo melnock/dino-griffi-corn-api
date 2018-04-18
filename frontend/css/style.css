@@ -36,10 +36,23 @@ li{
 }
 
 #start-screen, #choose-character-screen{
+  background: #1f1d31;
+  background-image: url("https://orig00.deviantart.net/9955/f/2015/365/b/5/space_port_by_kirokaze-d9m693z.gif");
+  /* background-image: url("https://orig00.deviantart.net/8df9/f/2015/315/4/b/idolized_by_faxdoc-d9gb9al.gif"); */
+  background-repeat: no-repeat, repeat;
   position: absolute;
   display: block;
   top:10px;
-  left: 350px;
+  left: 10px;
+  width:60%;
+  height: 520px;
+}
+
+#homescreen, #choose-character-background{
+  display: none;
+  position:absolute;
+  left: 180px;
+  top: 100px;
 }
 
 #choose-character-screen{
@@ -48,14 +61,14 @@ li{
 
 #logo-div{
   position: absolute;
-  top: 10px;
-  left: 0px;
+  top: 50px;
+  left: 180px;
 }
 
 #start-button-div{
   position:absolute;
-  top: 140px;
-  left: 180px;
+  top: 240px;
+  left: 380px;
 }
 
 #start-button-div:hover{
@@ -67,8 +80,8 @@ li{
 #characters{
   z-index: 1;
   position: absolute;
-  top: 10px;
-  left: 30px;
+  top: 50px;
+  left: 50px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -79,35 +92,37 @@ li{
   font-size: 1.5em;
   color: #06ff12;
   position: absolute;
-  max-width: 400px;
+  max-width: 600px;
   text-align: center;
-  top: 130px;
-  left: 120px;
+  top: 250px;
+  left: 220px;
+  background-color: rgba(0,0,0,.5);
+
 }
 
 .dino{
-  padding: 10px;
+  padding: 50px;
   display: flex;
   justify-content: flex-start;
   max-width: 100px;
 }
 
 .unicorn{
-  padding: 10px;
+  padding: 50px;
   display: flex;
   justify-content: space-around;
   max-width: 100px;
 }
 
 .car-side{
-  padding: 10px;
+  padding: 50px;
   display: flex;
   justify-content: space-around;
   max-width: 200px;
 }
 
 .griffon{
-  padding: 10px;
+  padding: 50px;
   display: flex;
   justify-content: flex-end;
   max-width: 100px;
@@ -115,7 +130,7 @@ li{
 
 #game-over-form{
   position: absolute;
-  left: 350px;
+  left: 380px;
   top: 450px;
 }
 
@@ -129,15 +144,12 @@ input[type="text"]{
   padding: 10px;
   width: 100px;
 }
-input[type="submit"], button{
+button{
   font-family: monospace;
   color: #06ff12;
   background: #1f1d31;
   border: 1px solid #06ff12;
   padding: 10px;
-}
-
-button{
   font-size: 2em;
-  left: 20px;
+  left: 80px;
 }

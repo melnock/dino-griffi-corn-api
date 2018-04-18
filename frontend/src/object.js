@@ -64,7 +64,7 @@ class Object {
         }
         if (game.health < 0) {
           game.health = 0
-          game.gameOverSequence()
+          game.gameOverSequence(game)
           // alert(`Game Over - You got ${game.score} points!`)
         }
       }

@@ -8,10 +8,11 @@ class ScoreEntry {
     this.activeKey = 0
   }
 
-  render() {
+  render(game) {
+    let score = game.score
     twoD.font = "20px monospace"
     twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
-    twoD.fillText(`You got ${game.score} points!`, 200, 160)
+    twoD.fillText(`You got ${score} points!`, 200, 160)
     twoD.fillText(`Add your initials to the leaderboard!`, 120, 190)
     twoD.fillStyle = "#06ff12"
     twoD.font = "60px monospace"

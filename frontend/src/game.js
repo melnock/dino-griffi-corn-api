@@ -84,25 +84,25 @@ class Game {
   }
 
   gameOverSequence(game){
-
+    console.log(game)
     clearInterval(this.intervalCanvas)
     let score = new ScoreEntry()
     // twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
-    score.render()
+    score.render(game)
 
     document.addEventListener('keydown', e => {
       if (e.key == "ArrowLeft") {
         score.activeKey = Math.max(0, score.activeKey - 1)
-        score.render()
+        score.render(game)
       } else if (e.key == "ArrowRight") {
         score.activeKey = Math.min(2, score.activeKey + 1)
-        score.render()
+        score.render(game)
       } else if (e.key == "ArrowUp") {
         score[`key${score.activeKey}`] = Math.min(26, score[`key${score.activeKey}`] + 1)
-        score.render()
+        score.render(game)
       } else if (e.key == "ArrowDown") {
         score[`key${score.activeKey}`] = Math.max(0, score[`key${score.activeKey}`] - 1)
-        score.render()
+        score.render(game)
       } else if (e.key == "Enter") {
         this.addUsername(`${score.alpha[score.key0]}${score.alpha[score.key1]}${score.alpha[score.key2]}`)
         Adapter.postScore(this)
