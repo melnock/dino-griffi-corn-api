@@ -10,7 +10,7 @@ class Game {
     this.health = 3
     this.player.initEventListener(this);
     this.intervalCanvas = setInterval(()=>(this.draw()), 70)
-    this.intervalLines = setInterval(this.newLines, 200)
+    this.intervalLines = setInterval(this.newLines, 400)
     this.bomb_count = 1
     this.items = Blueprint.all()
     setInterval(()=>(this.incrementTime()), interval)

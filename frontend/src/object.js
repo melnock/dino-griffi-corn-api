@@ -17,7 +17,7 @@ class Object {
   }
 
   static randObject(blueprint) {
-    let object = new Object(Math.round(Math.random() * 20) + 310, blueprint.name, blueprint.height, blueprint.width, blueprint.hitLeft, blueprint.hitRight)
+    let object = new Object(Math.random() * 30 + 305, blueprint.name, blueprint.height, blueprint.width, blueprint.hitLeft, blueprint.hitRight)
     objArr.unshift(object)
     return object
   }

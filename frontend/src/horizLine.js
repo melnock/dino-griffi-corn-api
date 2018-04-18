@@ -9,13 +9,13 @@ class HorizLine {
   }
 
   render() {
-    twoD.lineWidth = this.width += 0.5
+    twoD.lineWidth = this.width += 0.2
     twoD.beginPath()
     twoD.moveTo(0, this.y)
     twoD.lineTo(640, this.y)
     twoD.stroke()
-    this.y = this.y * this.dist
-    this.dist += 0.005
+    this.y += this.dist
+    this.dist += 0.2
   }
 
   static all() {

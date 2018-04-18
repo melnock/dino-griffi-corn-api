@@ -23,8 +23,6 @@ class Background {
     }
     this.horizon();
     this.vertLine(320)
-    // this.vertLine(250);
-    // this.vertLine(390);
     twoD.lineWidth = "4";
     twoD.fillStyle="#420442"
     twoD.fillRect(0, 240, 640, 360);
@@ -66,5 +64,4 @@ class Background {
     twoD.lineTo(640, 240)
     twoD.stroke();
   }
-
 }
