@@ -11,7 +11,6 @@ class Background {
 
   render() {
     twoD.drawImage(document.querySelector('#sky'), 0, 0, 640, 450)
-    console.log(this.sunY)
     if (this.sunY > 80) {
       twoD.drawImage(document.querySelector('#sun'), 220, this.sunY -= 0.5, 200, 200)
     } else {

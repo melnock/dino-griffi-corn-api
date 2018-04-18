@@ -56,7 +56,7 @@ class Object {
       if (game.player.x + 50 > (this.x) && game.player.x + 50 < (this.x + this.width)) {
         if (this.name == "star") {
           game.score += 100
-          console.log('star')
+          // console.log('star')
         } else if (this.name == "bomb") {
           game.bomb_count += 1
         } else {
