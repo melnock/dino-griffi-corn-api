@@ -66,9 +66,9 @@ class Game {
   }
 
   incrementTime(){
-    console.log(this)
+    // console.log(this)
     if (interval > 25){
-      interval -= 15
+      interval -= 500
       console.log(interval)
     }
     this.addItem()
