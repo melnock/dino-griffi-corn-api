@@ -13,7 +13,8 @@ class Game {
     this.intervalLines = setInterval(this.newLines, 400)
     this.bomb_count = 1
     this.items = Blueprint.all()
-    setInterval(()=>(this.incrementTime()), interval)
+    this.incrementTime()
+    // setInterval(()=>{this.incrementTime()}, 1000)
     // autoBind(this)
     // setInterval(() => {this.addItem()}, 1500)
     setInterval(Object.palms, 600)
@@ -66,12 +67,13 @@ class Game {
   }
 
   incrementTime(){
-    // console.log(this)
+    console.log(this)
     if (interval > 25){
-      interval -= 500
-      console.log(interval)
+      interval -= 25
     }
     this.addItem()
+    console.log(interval)
+    setTimeout(() => {this.incrementTime()}, interval)
   }
 
   newLines() {
@@ -79,8 +81,10 @@ class Game {
   }
 
   gameOverSequence(game){
+
     clearInterval(this.intervalCanvas)
     let score = new ScoreEntry()
+    // twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
     score.render()
 
     document.addEventListener('keydown', e => {
