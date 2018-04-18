@@ -60,8 +60,6 @@ class Game {
     HorizLine.all().map(line => line.render())
     Object.all().map(object => object.render(this))
     this.player.render()
-    document.querySelector("#score").innerText = this.score
-    document.querySelector("#health").innerText = this.health
   }
 
   newLines() {
@@ -72,7 +70,7 @@ class Game {
     twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
     twoD.fillStyle = "#06ff12"
     twoD.fillText(`You got ${game.score} points!`, 200, 160)
-    twoD.fillText(`Add your initials to the leaderboard!`, 135, 190)
+    twoD.fillText(`Add your initials to the leaderboard!`, 120, 190)
     let postGameForm = document.createElement("form")
     postGameForm.id = "game-over-form"
     postGameForm.innerHTML = `<input type="text"></input><input type="submit"></input>`
