@@ -13,13 +13,8 @@ class Game {
     this.intervalLines = setInterval(this.newLines, 200)
     this.bomb_count = 1
     this.items = Blueprint.all()
-<<<<<<< HEAD
     setInterval(()=>(this.incrementTime()), interval)
-    // autoBind(this)
-=======
-    setInterval(() => {this.addItem()}, 1500)
     setInterval(Object.palms, 600)
->>>>>>> 2d70e8b4cbf7be1b435d4465d8747c5634572578
   }
 
   addItem() {
@@ -82,8 +77,10 @@ class Game {
   }
 
   gameOverSequence(game){
+
     clearInterval(this.intervalCanvas)
     let score = new ScoreEntry()
+    // twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
     score.render()
 
     document.addEventListener('keydown', e => {
@@ -100,8 +97,7 @@ class Game {
         score[`key${score.activeKey}`] = Math.max(0, score[`key${score.activeKey}`] - 1)
         score.render()
       } else if (e.key == "Enter") {
-        this.addUsername(`${score.alpha[score.key0]}${score.alpha[score.key1]}${score.alpha[score.key2]}`)
-        Adapter.postScore(this)
+        console.log('enter, young one')
       }
     })
     // twoD.fillStyle = "#06ff12"
