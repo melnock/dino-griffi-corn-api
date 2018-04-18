@@ -36,6 +36,10 @@ class Game {
     twoD.fillText(this.score, 500, 40)
   }
 
+  addUsername(username){
+    this.username = username
+  }
+
 
   renderBombs() {
     twoD.fillStyle = "#06ff12"
