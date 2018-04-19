@@ -45,7 +45,6 @@ window.addEventListener('load', function() {
     howTo.id = "how-to-instructions"
     howTo.src = "img/how-to-instructions.png"
     document.body.append(howTo)
-
   }
 
   // fetchCharacters()
