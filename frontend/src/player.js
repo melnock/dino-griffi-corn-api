@@ -31,6 +31,7 @@ class Player {
     document.addEventListener('keydown', e => {
       if (e.key == " ") {
         if (game.bomb_count > 0) {
+          game.interval += 300
           Object.clear();
           game.bomb_count -= 1
         }

@@ -1,7 +1,7 @@
 const objArr = []
 
 class Object {
-  constructor(initial, name, height, width, hitLeft, hitRight) {
+  constructor(initial, name, height, width) {
     initial > (canvas.width / 2) ? this.orientation = "right" : this.orientation = "left"
     this.name = name
     this.sprite = document.querySelector(`#${name}`)
@@ -12,12 +12,10 @@ class Object {
     this.width = width
     this.x = initial
     this.y = 240 - height
-    this.hitLeft = hitLeft
-    this.hitRight = hitRight
   }
 
   static randObject(blueprint) {
-    let object = new Object(Math.random() * 30 + 305, blueprint.name, blueprint.height, blueprint.width, blueprint.hitLeft, blueprint.hitRight)
+    let object = new Object(Math.random() * 30 + 305, blueprint.name, blueprint.height, blueprint.width)
     objArr.unshift(object)
     return object
   }
@@ -53,7 +51,9 @@ class Object {
       this.dist += 1
     }
     if (this.dist == 30) {
+      this.dist = 31
       if (game.player.x + 50 > (this.x) && game.player.x + 50 < (this.x + this.width)) {
+        console.log('hit')
         if (this.name == "star") {
           game.score += 100
           objArr.splice(-1, 1)
@@ -68,7 +68,7 @@ class Object {
           game.health = 0
           game.gameOverSequence()
         }
-        this.dist = 31
+
       }
     }
   }

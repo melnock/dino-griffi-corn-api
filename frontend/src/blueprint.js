@@ -6,7 +6,10 @@ class Blueprint {
     this.hitRight = json.hitbox_size.right
     this.height = json.size.height
     this.width = json.size.width
-    blueprints.push(this)
+    this.rarity = json.rarity
+    for (let i = 0; i < this.rarity; i++) {
+      blueprints.push(this)
+    }
   }
 
   static all() {

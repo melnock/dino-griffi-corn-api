@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_17_182703) do
+ActiveRecord::Schema.define(version: 2018_04_19_131403) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2018_04_17_182703) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "size"
+    t.integer "rarity"
   end
 
   create_table "levels", force: :cascade do |t|

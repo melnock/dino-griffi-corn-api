@@ -1,7 +1,6 @@
 
 const backdrop = document.querySelector('#backdrop')
 const background = new Background();
-let interval = 1500
 
 class Game {
   constructor(character) {
@@ -13,10 +12,9 @@ class Game {
     this.intervalLines = setInterval(this.newLines, 400)
     this.bomb_count = 1
     this.items = Blueprint.all()
+    this.running = true
+    this.interval = 1500
     this.incrementTime()
-    // setInterval(()=>{this.incrementTime()}, 1000)
-    // autoBind(this)
-    // setInterval(() => {this.addItem()}, 1500)
     setInterval(Object.palms, 600)
   }
 
@@ -67,13 +65,13 @@ class Game {
   }
 
   incrementTime(){
-    console.log(this)
-    if (interval > 25){
-      interval -= 25
+    if (this.running) {
+      if (this.interval > 300){
+        this.interval -= 25
+      }
+      this.addItem()
+      setTimeout(() => {this.incrementTime()}, this.interval)
     }
-    this.addItem()
-    console.log(interval)
-    setTimeout(() => {this.incrementTime()}, interval)
   }
 
   newLines() {
@@ -81,7 +79,7 @@ class Game {
   }
 
   gameOverSequence(game){
-
+    this.running = false
     clearInterval(this.intervalCanvas)
     let score = new ScoreEntry()
     // twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)

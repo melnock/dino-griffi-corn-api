@@ -7,12 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Item.create(name: "palmtree", sprite: "img/palm.png", obstacle: true, hitbox_size: {left: 100, right: 230}, size: {width: 15, height: 15})
-Item.create(name: "crystal", sprite: "img/crystal.png", obstacle: true, hitbox_size: {left: 0, right: 400}, size: {width: 15, height: 12})
-Item.create(name: "star", sprite: "img/star.png", obstacle: false, hitbox_size: {left: 0, right: 300}, size: {width: 1, height: 1.5})
-Item.create(name: "cop", sprite: "img/cop.png", obstacle: true, hitbox_size: {left: 0, right: 300}, size: {width: 1.2, height: 0.8})
-Item.create(name: "sportscar", sprite: "img/sportscar.png", obstacle: true, hitbox_size: {left: 0, right: 300}, size: {width: 1, height: 0.7})
-Item.create(name: "bomb", sprite: "img/bomb.png", obstacle: false, hitbox_size: {left: 0, right: 200}, size: {width: 0.5, height: 0.5})
+Item.create(name: "palmtree", sprite: "img/palm.png", rarity: 7, obstacle: true, hitbox_size: {left: 100, right: 230}, size: {width: 15, height: 15})
+Item.create(name: "crystal", sprite: "img/crystal.png", rarity: 5, obstacle: true, hitbox_size: {left: 0, right: 400}, size: {width: 15, height: 12})
+Item.create(name: "star", sprite: "img/star.png", rarity: 3, obstacle: false, hitbox_size: {left: 0, right: 300}, size: {width: 1, height: 1.5})
+Item.create(name: "cop", sprite: "img/cop.png", rarity: 4, obstacle: true, hitbox_size: {left: 0, right: 300}, size: {width: 1.2, height: 0.8})
+Item.create(name: "sportscar", sprite: "img/sportscar.png", rarity: 4, obstacle: true, hitbox_size: {left: 0, right: 300}, size: {width: 1, height: 0.7})
+Item.create(name: "bomb", sprite: "img/bomb.png", rarity: 2, obstacle: false, hitbox_size: {left: 0, right: 200}, size: {width: 0.5, height: 0.5})
+Item.create(name: "health", sprite: "img/health.png", rarity: 1, obstacle: false, hitbox_size: {left: 0, right: 150}, size: {width: 1, height: 1})
 
 Character.create(name: "unicorn", sprites: {front: "img/rarity.png", back: "img/unicorn.png"}, bio: "A mythical unicorn has many special talents. I bet you didn't know that one of them was navigting through our jungle of obstacles. Will you be champion with the unicorn as your guide?")
 Character.create(name: "car", sprites: {front: "img/car.png", back: "img/outrun.png"}, bio: "a e s t h e t i c")
