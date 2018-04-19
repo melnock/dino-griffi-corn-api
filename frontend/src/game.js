@@ -70,7 +70,7 @@ class Game {
   }
 
   incrementTime(){
-    if (interval > 75){
+    if (interval > 250){
       interval -= 25
     }
     if (this.health >= 0){
@@ -90,7 +90,7 @@ class Game {
     // twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
     score.render(game)
 
-    document.addEventListener('keydown', e => {
+    function gameOver(e){
       if (e.key == "ArrowLeft") {
         score.activeKey = Math.max(0, score.activeKey - 1)
         score.render(game)
@@ -104,16 +104,22 @@ class Game {
         score[`key${score.activeKey}`] = Math.max(0, score[`key${score.activeKey}`] - 1)
         score.render(game)
       } else if (e.key == "Enter") {
-        this.addUsername(`${score.alpha[score.key0]}${score.alpha[score.key1]}${score.alpha[score.key2]}`)
-        Adapter.postScore(this)
+        game.addUsername(`${score.alpha[score.key0]}${score.alpha[score.key1]}${score.alpha[score.key2]}`)
+        Adapter.postScore(game)
+        twoD.clearRect(0, 0, canvas.width, canvas.height)
+        twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
+        document.removeEventListener('keydown', gameOver)
           postGameForm.innerHTML='<button id="restart-button"> New Game! </button>'
           document.body.append(postGameForm)
           postGameForm.addEventListener('click', (e) => {
             e.preventDefault();
             document.location.reload()
           })
+        }
       }
-    })
+      document.addEventListener('keydown', gameOver )
+    }
+}
     // twoD.fillStyle = "#06ff12"
 
     // postGameForm.innerHTML = `<input type="text"></input><input type="submit"></input>`
@@ -125,5 +131,5 @@ class Game {
 
     // })
     // setTimeout(function(){document.location.reload()}, 60000)
-  }
-}
+//   }
+// }
