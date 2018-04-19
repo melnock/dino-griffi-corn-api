@@ -92,6 +92,7 @@ class Game {
     score.render(game)
 
     function gameOver(e){
+      init()
       if (e.key == "ArrowLeft") {
         score.activeKey = Math.max(0, score.activeKey - 1)
         score.render(game)
