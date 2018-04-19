@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Item.create(name: "palmtree", sprite: "img/palm.png", rarity: 7, obstacle: true, hitbox_size: {left: 100, right: 230}, size: {width: 15, height: 15})
-Item.create(name: "crystal", sprite: "img/crystal.png", rarity: 5, obstacle: true, hitbox_size: {left: 0, right: 400}, size: {width: 15, height: 12})
-Item.create(name: "star", sprite: "img/star.png", rarity: 3, obstacle: false, hitbox_size: {left: 0, right: 300}, size: {width: 1, height: 1.5})
-Item.create(name: "cop", sprite: "img/cop.png", rarity: 4, obstacle: true, hitbox_size: {left: 0, right: 300}, size: {width: 1.2, height: 0.8})
+Item.create(name: "palmtree", sprite: "img/palm.png", rarity: 15, obstacle: true, hitbox_size: {left: 100, right: 230}, size: {width: 15, height: 15})
+Item.create(name: "crystal", sprite: "img/crystal.png", rarity: 9, obstacle: true, hitbox_size: {left: 0, right: 400}, size: {width: 15, height: 12})
+Item.create(name: "star", sprite: "img/star.png", rarity: 5, obstacle: false, hitbox_size: {left: 0, right: 300}, size: {width: 1, height: 1.5})
+Item.create(name: "cop", sprite: "img/cop.png", rarity: 7, obstacle: true, hitbox_size: {left: 0, right: 300}, size: {width: 1.2, height: 0.8})
 Item.create(name: "sportscar", sprite: "img/sportscar.png", rarity: 4, obstacle: true, hitbox_size: {left: 0, right: 300}, size: {width: 1, height: 0.7})
 Item.create(name: "bomb", sprite: "img/bomb.png", rarity: 2, obstacle: false, hitbox_size: {left: 0, right: 200}, size: {width: 0.5, height: 0.5})
 Item.create(name: "health", sprite: "img/health.png", rarity: 1, obstacle: false, hitbox_size: {left: 0, right: 150}, size: {width: 1, height: 1})

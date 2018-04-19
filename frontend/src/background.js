@@ -5,10 +5,6 @@ class Background {
     this.cityY = 200
   }
 
-  renderPalm() {
-
-  }
-
   render(game) {
     twoD.drawImage(document.querySelector('#sky'), 0, 0, 640, 450)
     if (this.sunY > 80) {
@@ -23,33 +19,19 @@ class Background {
       twoD.drawImage(document.querySelector('#city'), 0, this.cityY, 640, 150)
       this.level = Math.max(2, this.level)
     }
-    this.horizon();
+    
+    twoD.lineWidth = "2"
+    this.drawLine(0, 240, 640, 240)
     this.vertLine(320)
     twoD.lineWidth = "4";
     twoD.fillStyle="#420442"
     twoD.fillRect(0, 240, 640, 360);
     twoD.stroke();
 
-    twoD.beginPath();
-    twoD.moveTo(280, 240)
-    twoD.lineTo(130, 360)
-    twoD.strokeStyle = "#8cfffb"
-    twoD.stroke();
-
-    twoD.beginPath();
-    twoD.moveTo(240, 240)
-    twoD.lineTo(0, 330)
-    twoD.stroke();
-
-    twoD.beginPath();
-    twoD.moveTo(360, 240)
-    twoD.lineTo(510, 360)
-    twoD.stroke();
-
-    twoD.beginPath();
-    twoD.moveTo(400, 240)
-    twoD.lineTo(640, 330)
-    twoD.stroke();
+    this.drawLine(280, 240, 130, 360)
+    this.drawLine(240, 240, 0, 330)
+    this.drawLine(360, 240, 510, 360)
+    this.drawLine(400, 240, 640, 330)
   }
 
   vertLine(initial) {
@@ -60,10 +42,11 @@ class Background {
     twoD.stroke();
   }
 
-  horizon() {
-    twoD.beginPath()
-    twoD.moveTo(0, 240)
-    twoD.lineTo(640, 240)
+  drawLine(x1, y1, x2, y2) {
+    twoD.beginPath();
+    twoD.moveTo(x1, y1)
+    twoD.lineTo(x2, y2)
+    twoD.strokeStyle = "#8cfffb"
     twoD.stroke();
   }
 }

@@ -46,12 +46,12 @@ class Player {
   render() {
     if (this.keyLeft) {
       if (this.momentum > 0) {
-        this.momentum = -10
+        this.momentum = -5
       }
       this.momentum = Math.max(-25, this.momentum - 4)
     } else if (this.keyRight) {
       if (this.momentum < 0) {
-        this.momentum = 10
+        this.momentum = 5
       }
       this.momentum = Math.min(25, this.momentum + 4)
     }

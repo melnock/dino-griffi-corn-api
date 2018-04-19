@@ -71,20 +71,13 @@ class Game {
 
   incrementTime(){
     if (interval > 250){
-      interval -= 25
+      interval -= 15
     }
-    if (this.level == 1){
+    for (let i = 0; i < this.level; i++) {
       this.addItem()
-      setTimeout(() => {this.incrementTime()}, interval)
-    } else if (this.level == 2){
-      this.addItem()
-      this.addItem()
-      setTimeout(() => {this.incrementTime()}, interval)
-    } else if (this.level == 3){
-      this.addItem()
-      this.addItem()
-      this.addItem()
-      setTimeout(() => {this.incrementTime()}, interval)
+    }
+    if (this.level != 0) {
+        setTimeout(() => {this.incrementTime()}, interval)
     }
   }
 

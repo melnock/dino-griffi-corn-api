@@ -33,7 +33,6 @@ class Adapter {
     let leaderboard = document.querySelector("#scores-list")
     document.querySelector('#leaderboard').style.display = 'inline'
     let array = json.sort((gameA, gameB) => (gameB.score-gameA.score) ).slice(0, 10)
-    console.log(array)
     array.forEach((game)=>leaderboard.innerHTML += `<li><b>${game.username}</b>   |   ${game.score}</li>`)
   }
 }
