@@ -19,7 +19,7 @@ function init() {
       console.log(input == code)
       if (input.join() === code.join()){
        let egg = new EasterEgg
-       egg.draw()
+       // egg.draw()
       }
     }
     else{

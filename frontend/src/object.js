@@ -52,9 +52,9 @@ class Object {
     }
     if (this.dist == 30) {
       this.dist = 31
-      if (game.player.x + 50 > (this.x) && game.player.x + 50 < (this.x + this.width)) {
+      if (game.player.x > (this.x) && game.player.x < (this.x + this.width) || game.player.x + 50 > (this.x) && game.player.x + 50 < (this.x + this.width) || game.player.x + 100 > (this.x) && game.player.x + 100 < (this.x + this.width)) {
         if (this.name == "star") {
-          game.score += 100
+          game.score += 500
         } else if (this.name == "bomb") {
           game.bomb_count += 1
         } else if (this.name == "health"){

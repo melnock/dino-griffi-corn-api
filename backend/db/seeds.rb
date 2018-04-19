@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Item.create(name: "palmtree", sprite: "img/palm.png", rarity: 15, obstacle: true, hitbox_size: {left: 100, right: 230}, size: {width: 15, height: 15})
-Item.create(name: "crystal", sprite: "img/crystal.png", rarity: 9, obstacle: true, hitbox_size: {left: 0, right: 400}, size: {width: 15, height: 12})
+Item.create(name: "palmtree", sprite: "img/palm.png", rarity: 15, obstacle: true, hitbox_size: {left: 100, right: 230}, size: {width: 5, height: 5})
+Item.create(name: "crystal", sprite: "img/crystal.png", rarity: 9, obstacle: true, hitbox_size: {left: 0, right: 400}, size: {width: 10, height: 8})
 Item.create(name: "star", sprite: "img/star.png", rarity: 5, obstacle: false, hitbox_size: {left: 0, right: 300}, size: {width: 1, height: 1.5})
 Item.create(name: "cop", sprite: "img/cop.png", rarity: 7, obstacle: true, hitbox_size: {left: 0, right: 300}, size: {width: 1.2, height: 0.8})
 Item.create(name: "sportscar", sprite: "img/sportscar.png", rarity: 4, obstacle: true, hitbox_size: {left: 0, right: 300}, size: {width: 1, height: 0.7})
