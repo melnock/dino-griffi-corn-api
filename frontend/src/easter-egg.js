@@ -11,13 +11,15 @@ var paddleX = (canvas.width-paddleWidth)/2;
 var rightPressed = false;
 var leftPressed = false;
 
-var brickRowCount = 3;
-var brickColumnCount = 5;
+var brickRowCount = 4;
+var brickColumnCount = 6;
 var brickWidth = 75;
 var brickHeight = 20;
 var brickPadding = 10;
 var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
+var myArray = ["#06ff12", "#06ff12", "#06ff12", "#06ff12", "#06ff12", "#06ff12", "#06ff12", "#8BC900", "#80ba27"]
+
 
 var score = 0;
 var lives = 3;
@@ -32,11 +34,11 @@ for(c=0; c<brickColumnCount; c++) {
 }
 class EasterEgg{
   constructor(){
-    setInterval(()=>{this.draw()},10)
+    this.gameFlow = setInterval(()=>{this.draw()},10)
   }
    drawScore(){
-    twoD.font = "16px Arial";
-    twoD.fillStyle = "#0095DD";
+    twoD.font = "16px monospace";
+    twoD.fillStyle = "#06ff12";
     twoD.fillText("Score: " + score, 8 , 20);
   }
 
@@ -50,7 +52,7 @@ class EasterEgg{
               bricks[c][r].y = brickY;
               twoD.beginPath();
               twoD.rect(brickX, brickY, brickWidth, brickHeight);
-              twoD.fillStyle = "#0095DD";
+              twoD.fillStyle = myArray[Math.floor(Math.random() * myArray.length)];
               twoD.fill();
               twoD.closePath();
             }
@@ -68,8 +70,10 @@ class EasterEgg{
                       b.status = 0;
                       ++score;
                       if(score == brickRowCount*brickColumnCount) {
-                           alert("YOU WIN, CONGRATULATIONS!");
-                           document.location.reload();
+                         let win = document.createElement('p')
+                         win.innerText = "You've won the game!"
+                         document.querySelector('#game-over-form').prepend(win)
+                         clearInterval(this.gameFlow);
                        }
                   }
               }
@@ -78,16 +82,16 @@ class EasterEgg{
   }
 
    drawLives() {
-      twoD.font = "16px Arial";
-      twoD.fillStyle = "#0095DD";
-      twoD.fillText("Lives: "+lives, canvas.width-65, 20);
+      twoD.font = "16px monospace";
+      twoD.fillStyle = "#06ff12";
+      twoD.fillText("Lives: "+lives, canvas.width-95, 20);
   }
 
    drawBall(){
     //ball
     twoD.beginPath();
     twoD.arc(x, y, ballRadius, 0, Math.PI*2);
-    twoD.fillStyle = "#0095DD";
+    twoD.fillStyle = "#06ff12";
     twoD.fill();
     twoD.closePath();
   }
@@ -95,7 +99,7 @@ class EasterEgg{
    drawPaddle(){
     twoD.beginPath();
     twoD.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-    twoD.fillStyle = "#0095DD";
+    twoD.fillStyle = "#06ff12";
     twoD.fill();
     twoD.closePath();
   }
@@ -120,8 +124,8 @@ class EasterEgg{
 
    draw(){
     //clear canvas
-    console.log(this)
     twoD.clearRect(0,0, canvas.width, canvas.height)
+    background.render()
     this.drawBricks()
     this.drawBall()
     this.drawPaddle()
@@ -137,9 +141,10 @@ class EasterEgg{
       else {
         lives--;
         if(!lives) {
-          alert("GAME OVER");
-          document.location.reload();
-        }
+          let lose = document.createElement('p')
+          lose.innerText = "You've lost the game!"
+          document.querySelector('#game-over-form').prepend(lose)
+          clearInterval(this.gameFlow);        }
         else {
           x = canvas.width/2;
           y = canvas.height-30;
