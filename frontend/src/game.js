@@ -109,7 +109,7 @@ class Game {
         twoD.clearRect(0, 0, canvas.width, canvas.height)
         twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
         document.removeEventListener('keydown', gameOver)
-          postGameForm.innerHTML='<button id="restart-button"> New Game! </button>'
+          postGameForm.innerHTML='<img id="restart-button" src="img/start-button.png">'
           document.body.append(postGameForm)
           postGameForm.addEventListener('click', (e) => {
             e.preventDefault();
