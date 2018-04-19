@@ -46,8 +46,17 @@ window.addEventListener('load', function() {
     document.body.append(howTo)
   }
 
+  function renderSassycorn(e){
+    let unicorn = document.querySelector('#rainbow-corn')
+    if (unicorn.style.display === "none"){
+        unicorn.style.display = "block"
+    } else{
+      unicorn.style.display = "none"
+    }
+  }
+
   // fetchCharacters()
   document.querySelector("#how-to-div").addEventListener('click', renderInstructions)
-
+  document.querySelector('#logo').addEventListener('click', renderSassycorn)
   document.querySelector("#start-button-div").addEventListener('click', startGame)
 })
