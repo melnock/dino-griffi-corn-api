@@ -30,14 +30,26 @@ window.addEventListener('load', function() {
   }
 
   function startGame(e){
+    if (document.querySelector("#how-to-instructions")){
+      document.querySelector("#how-to-instructions").remove()
+    }
     const chooseCharacter = document.querySelector('#choose-character-screen')
     document.querySelector('#start-screen').style.display = 'none'
     chooseCharacter.style.display = 'inline'
     chooseCharacter.addEventListener('mouseover', displayCharacterBio)
     chooseCharacter.addEventListener('click', characterClick)
+  }
+
+  function renderInstructions(e){
+    const howTo = document.createElement("img")
+    howTo.id = "how-to-instructions"
+    howTo.src = "img/how-to-instructions.png"
+    document.body.append(howTo)
 
   }
 
   // fetchCharacters()
+  document.querySelector("#how-to-div").addEventListener('click', renderInstructions)
+
   document.querySelector("#start-button-div").addEventListener('click', startGame)
 })
