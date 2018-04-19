@@ -1,6 +1,6 @@
 const code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]
 
-function init() {
+function init(character) {
   // Write your JavaScript code inside the init() function
   let body = document.querySelector("body")
   let input = []
@@ -18,8 +18,7 @@ function init() {
       console.log(input)
       console.log(input == code)
       if (input.join() === code.join()){
-       let egg = new EasterEgg
-       egg.draw()
+       let egg = new EasterEgg()
       }
     }
     else{

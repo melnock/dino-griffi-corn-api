@@ -92,7 +92,7 @@ class Game {
     score.render(game)
 
     function gameOver(e){
-      init()
+
       if (e.key == "ArrowLeft") {
         score.activeKey = Math.max(0, score.activeKey - 1)
         score.render(game)
@@ -106,6 +106,7 @@ class Game {
         score[`key${score.activeKey}`] = Math.max(0, score[`key${score.activeKey}`] - 1)
         score.render(game)
       } else if (e.key == "Enter") {
+        init()
         game.addUsername(`${score.alpha[score.key0]}${score.alpha[score.key1]}${score.alpha[score.key2]}`)
         Adapter.postScore(game)
         twoD.clearRect(0, 0, canvas.width, canvas.height)

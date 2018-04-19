@@ -63,4 +63,13 @@ class Player {
     }
     twoD.drawImage(document.querySelector('#car'), this.x, 260, 100, 60)
   }
+  renderEgg() {
+    if (this.momentum > 0) {
+      this.momentum -= 2
+    } else if (this.momentum < 0) {
+      this.momentum += 2
+    }
+    this.x = this.clamp(this.x + this.momentum, 0, 540)
+    twoD.drawImage(document.querySelector('#car'), this.x, 360, 100, 60)
+  }
 }
