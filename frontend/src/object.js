@@ -15,7 +15,7 @@ class Object {
   }
 
   static randObject(blueprint) {
-    let object = new Object(Math.random() * 30 + 305, blueprint.name, blueprint.height, blueprint.width)
+    let object = new Object(Math.random() * 50 + 295, blueprint.name, blueprint.height, blueprint.width)
     objArr.unshift(object)
     return object
   }
@@ -53,23 +53,23 @@ class Object {
     if (this.dist == 30) {
       this.dist = 31
       if (game.player.x + 50 > (this.x) && game.player.x + 50 < (this.x + this.width)) {
-        console.log('hit')
         if (this.name == "star") {
           game.score += 100
-          objArr.splice(-1, 1)
         } else if (this.name == "bomb") {
           game.bomb_count += 1
-          objArr.splice(-1, 1)
-        } else {
+        } else if (this.name == "health"){
+          game.health = Math.min(3, game.health + 1)
+        }else {
           game.health -= 1
-          objArr.splice(-1, 1)
         }
         if (game.health < 0) {
+          game.level = 0
           game.health = 0
-          game.gameOverSequence()
+          game.gameOverSequence(game)
+          // alert(`Game Over - You got ${game.score} points!`)
         }
-
       }
+      objArr.splice(-1, 1)
     }
   }
 }

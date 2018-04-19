@@ -2,6 +2,11 @@
 const backdrop = document.querySelector('#backdrop')
 const background = new Background();
 
+let interval = 1500
+let postGameForm = document.createElement("form")
+postGameForm.id = "game-over-form"
+
+
 class Game {
   constructor(character) {
     this.player = new Player(character);
@@ -12,7 +17,7 @@ class Game {
     this.intervalLines = setInterval(this.newLines, 400)
     this.bomb_count = 1
     this.items = Blueprint.all()
-    this.running = true
+    this.level = 1
     this.interval = 1500
     this.incrementTime()
     setInterval(Object.palms, 600)
@@ -65,12 +70,21 @@ class Game {
   }
 
   incrementTime(){
-    if (this.running) {
-      if (this.interval > 300){
-        this.interval -= 25
-      }
+    if (interval > 250){
+      interval -= 25
+    }
+    if (this.level == 1){
       this.addItem()
-      setTimeout(() => {this.incrementTime()}, this.interval)
+      setTimeout(() => {this.incrementTime()}, interval)
+    } else if (this.level == 2){
+      this.addItem()
+      this.addItem()
+      setTimeout(() => {this.incrementTime()}, interval)
+    } else if (this.level == 3){
+      this.addItem()
+      this.addItem()
+      this.addItem()
+      setTimeout(() => {this.incrementTime()}, interval)
     }
   }
 
@@ -79,48 +93,51 @@ class Game {
   }
 
   gameOverSequence(game){
-    this.running = false
     clearInterval(this.intervalCanvas)
     let score = new ScoreEntry()
     // twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
-    score.render()
+    score.render(game)
 
-    document.addEventListener('keydown', e => {
+    function gameOver(e){
       if (e.key == "ArrowLeft") {
         score.activeKey = Math.max(0, score.activeKey - 1)
-        score.render()
+        score.render(game)
       } else if (e.key == "ArrowRight") {
         score.activeKey = Math.min(2, score.activeKey + 1)
-        score.render()
+        score.render(game)
       } else if (e.key == "ArrowUp") {
         score[`key${score.activeKey}`] = Math.min(26, score[`key${score.activeKey}`] + 1)
-        score.render()
+        score.render(game)
       } else if (e.key == "ArrowDown") {
         score[`key${score.activeKey}`] = Math.max(0, score[`key${score.activeKey}`] - 1)
-        score.render()
+        score.render(game)
       } else if (e.key == "Enter") {
-        this.addUsername(`${score.alpha[score.key0]}${score.alpha[score.key1]}${score.alpha[score.key2]}`)
-        Adapter.postScore(this)
+        game.addUsername(`${score.alpha[score.key0]}${score.alpha[score.key1]}${score.alpha[score.key2]}`)
+        Adapter.postScore(game)
+        twoD.clearRect(0, 0, canvas.width, canvas.height)
+        twoD.drawImage(document.querySelector('#game-over'), 0, 0, 640, 360)
+        document.removeEventListener('keydown', gameOver)
+          postGameForm.innerHTML='<button id="restart-button"> New Game! </button>'
+          document.body.append(postGameForm)
+          postGameForm.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.location.reload()
+          })
+        }
       }
-    })
+      document.addEventListener('keydown', gameOver )
+    }
+}
     // twoD.fillStyle = "#06ff12"
 
-    // let postGameForm = document.createElement("form")
-    // postGameForm.id = "game-over-form"
     // postGameForm.innerHTML = `<input type="text"></input><input type="submit"></input>`
     // document.body.append(postGameForm)
     // postGameForm.addEventListener('submit', (e)=>{
     //   e.preventDefault()
     //   game.addUsername(e.target[0].value)
     //   Adapter.postScore(game)
-    //   postGameForm.innerHTML='<button id="restart-button"> New Game! </button>'
-    //   postGameForm.addEventListener('click', (e) => {
-    //     e.preventDefault();
-    //     if (e.target == document.querySelector("restart-button")){
-    //       document.location.reload()
-    //     }
-    //   })
+
     // })
     // setTimeout(function(){document.location.reload()}, 60000)
-  }
-}
+//   }
+// }
