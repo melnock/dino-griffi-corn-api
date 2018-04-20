@@ -3,7 +3,7 @@ class Background {
     this.counter = 0
     this.sunY = 350
     this.cityY = 200
-    this.skellY = 200
+    this.skellY = 250
   }
 
   render(game) {
