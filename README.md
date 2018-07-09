@@ -4,7 +4,7 @@ Single-player obstacle avoiding game made with Javascript and Ruby on Rails
 
 ## Walkthrough
 
-[click here](https://youtu.be/xyqRFOPIAIw "Click here for video")
+To view the video walkthrough, [click here.](https://youtu.be/xyqRFOPIAIw "Click here for video")
 
 ## Set-up
 
